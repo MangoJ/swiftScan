@@ -128,23 +128,25 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
         previewLayer?.frame = frame
         
         videoPreView.layer .insertSublayer(previewLayer!, at: 0)
-        
-        if ( device!.isFocusPointOfInterestSupported && device!.isFocusModeSupported(AVCaptureFocusMode.continuousAutoFocus) )
-        {
-            do
-            {
-                try input?.device.lockForConfiguration()
-                
-                input?.device.focusMode = AVCaptureFocusMode.continuousAutoFocus
-                
-                input?.device.unlockForConfiguration()
-            }
-            catch let error as NSError {
-                print("device.lockForConfiguration(): \(error)")
-                
-            }
-        }
-        
+
+
+        //添加对焦
+//        if ( device!.isFocusPointOfInterestSupported && device!.isFocusModeSupported(AVCaptureFocusMode.continuousAutoFocus) )
+//        {
+//            do
+//            {
+//                try input?.device.lockForConfiguration()
+//                
+//                input?.device.focusMode = AVCaptureFocusMode.continuousAutoFocus
+//                
+//                input?.device.unlockForConfiguration()
+//            }
+//            catch let error as NSError {
+//                print("device.lockForConfiguration(): \(error)")
+//                
+//            }
+//        }
+
     }
     
     func start()
